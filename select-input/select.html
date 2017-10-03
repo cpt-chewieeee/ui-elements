@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>Select</title>
+  <style>
+/*
+    :root {
+      --grey00: rgba(0, 0, 0, .1);
+      --grey0: rgba(158, 158, 158, 0.31);
+      --grey1: rgba(0, 0, 0, .2);
+      --grey2: rgba(61, 61, 61, .8);
+      --grey3: #595959;
+      --grey4: #3D3D3D;
+      --grey5: #333333;
+      --white00: rgba(255, 255, 255, .1);
+      --white0: rgba(255, 255, 255, .3);
+      --white1: #757570;
+    }
+*/
+
+    select {
+      color: #ffffff;
+      font-size: 14px;
+      border: none;
+      outline: none;
+      background-color: rgba(61, 61, 61, .8);
+    }
+
+     select:focus {
+      border-bottom: medium solid #FFFFFF;
+    }
+
+    select:focus {
+      background-color: rgba(61, 61, 61, .8);
+    }
+
+  </style>
+</head>
+<body>
+<select>
+  <option value='A'>Apple</option>
+  <option value='B'>Banana</option>
+  <option value='C'>Citrus</option>
+  <option value='D'>Dannish</option>
+</select>
+<script>
+  document.addEventListener('touchstart', handler, { passive: true })
+</script>
+</body>
+</html>

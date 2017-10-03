@@ -1,0 +1,74 @@
+:root {
+  --grey: rgb(221, 221, 221);
+  --blue: rgba(0, 119, 238, 0.6);
+  --transparent-grey: rgba(0, 0, 0, 0.26);
+  --border: 1px solid rgba(0, 0, 0, 0.35);
+
+  --blueBoxShadow: inset 0 3px 5px rgba(0, 119, 238, 0.8);
+  --greyBoxShadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                   0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                   0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+body { font-family: Arial, sans-serif; }
+
+button {
+  background-color: rgb(61, 61, 61);
+  font-size: 20px;
+  font-family: Calibri, sans-serif;
+  line-height: 1.5;
+  margin: 4px 2px;
+  padding: 8px 10px;
+  outline: 0;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+button:hover {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: var(--blue);
+  box-shadow: var(--greyBoxShadow);
+}
+
+button:active { box-shadow: var(--blueBoxShadow); }
+
+.modalContainer {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: var(--transparent-grey);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.modal {
+  padding: 1rem;
+  font-size: 16px;
+  background-color: white;
+  border: var(--border);
+  box-shadow: var(--greyBoxShadow);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  display: none;
+  transform: translate(-50%, -50%);
+}
+
+.modal div { margin: 0 .25rem .25rem; }
+
+.close {
+  margin: 0;
+  font-family: "Arial Black", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #c41a16;
+  text-align: end;
+}
+
+.close:hover { cursor: pointer; }

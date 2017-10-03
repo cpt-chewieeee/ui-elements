@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DROP DOWN</title>
+  <link rel="stylesheet" href="dropdown.css">
+</head>
+
+<body>
+<div class="outside">
+
+  <div class="input-bar">
+    <span class="label">LABEL</span>
+    <svg width="10" height="6" viewBox="0 0 10 6">
+      <path id="path" d="M5 6 L 0 0 H 10 Z"/>
+    </svg>
+  </div>
+
+  <li id='toggle' style="display: none;">
+    <ul class="dropdown">
+      <li>Setup</li>
+      <li><a href="#">Editors</a></li>
+      <li><a href="#">Caveats</a></li>
+      <li class="group-name">Packages</li>
+      <li><a>babel-core</a></li>
+      <li><a>babel-polyfill</a></li>
+      <li><a>Plugins</a></li>
+    </ul>
+  </li>
+</div>
+
+
+<script>
+  const dropdown = document.querySelector('.dropdown')
+  const inputBar = document.querySelector('.input-bar')
+  const label = document.querySelector('.label')
+  const toggle = document.getElementById('toggle')
+  const path = document.getElementById('path')
+
+  function toggleDropDown() {
+    toggle.style.display = toggle.style.display === 'none' ? 'block' : 'none'
+
+    path.getAttribute('transform')
+      ? path.removeAttribute('transform')
+      : path.setAttribute('transform', 'rotate(180, 5, 3)')
+  }
+
+  function setLabel(e) {
+    toggleDropDown()
+    label.textContent = e.target.textContent
+  }
+
+  inputBar.addEventListener('click', toggleDropDown)
+  dropdown.addEventListener('click', setLabel)
+
+</script>
+
+</body>
+
+</html>

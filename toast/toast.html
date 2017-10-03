@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="toast.css">
+</head>
+<body>
+
+<button onclick="toast('Successfully updated content on top-left','top-left', 'plum')">TOP LEFT</button>
+<button onclick="toast('Successfully updated content! Really long text string to test position works based on content size!!',
+                       'bottom-left','steelblue')">BOTTOM LEFT</button>
+
+<button onclick="toast('TOP CENTER: testing top center from the bottom','top-center','hotpink')">TOP CENTER</button>
+<button onclick="toast('BOTTOM CENTER')">BOTTOM CENTER</button>
+
+<button onclick="toast('TOP RIGHT','top-right','orange')">TOP RIGHT</button>
+<button onclick="toast('BOTTOM RIGHT: string of diff length','bottom-right','darkseagreen')">BOTTOM RIGHT</button>
+
+
+<script src="../helpers.js"></script>
+<script src="toast.js"></script>
+</body>
+</html>

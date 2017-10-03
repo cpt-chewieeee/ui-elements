@@ -1,0 +1,43 @@
+/*:local(.darkCyan) { color: darkcyan; }*/
+
+
+html {
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  color: #333333;
+  font-size: 16px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#b {
+  background: darkcyan;
+  color: #fff;
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  outline: none;
+  border: thin solid darkcyan;
+}
+
+.heading {
+  width: 70%;
+  padding: 10px;
+  margin: 15px;
+  font-size: 24px;
+}
+
+.content {
+  width: 70%;
+  padding: 10px;
+  margin: 15px;
+  font-family: Consolas, sans-serif;
+  height: 50vh;
+  font-size: 16px;
+  border: thin solid grey;
+}

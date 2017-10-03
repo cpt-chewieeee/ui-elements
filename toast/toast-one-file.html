@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Toast</title>
+  <style>
+    :root {
+      --ease-out: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      max-width: 90vw;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .toast {
+      color: #fff;
+      position: absolute;
+      z-index: 9999;
+      max-width: 250px;
+      padding: .75rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .remove-toast {
+      padding-left: 15px;
+      font-family: "Arial Black", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgb(196, 26, 22);
+    }
+
+    .remove-toast:hover {
+      cursor: pointer;
+    }
+
+    .slide-in-top {
+      transform: translateY(1rem);
+      transition: var(--ease-out);
+    }
+
+    .slide-in-bottom {
+      transform: translateY(-1rem);
+      transition: var(--ease-out);
+    }
+
+    .slide-out {
+      opacity: 0;
+      transition: var(--ease-out);
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="toast('Successfully updated content on top-left',
+                          'top-left',
+                          'plum')">
+    TOP LEFT
+  </button>
+  <button onclick="toast('Successfully updated content! Really long text string to test position!',
+                          'bottom-left',
+                          'steelblue')">
+    BOTTOM LEFT
+  </button>
+
+  <button onclick="toast('TOP CENTER: testing top center from the bottom',
+                         'top-center',
+                         'hotpink')">
+    TOP CENTER
+  </button>
+  <button onclick="toast('BOTTOM CENTER')">BOTTOM CENTER</button>
+
+  <button onclick="toast('TOP RIGHT',
+                         'top-right',
+                         'orange')">
+    TOP RIGHT
+  </button>
+  <button onclick="toast('BOTTOM RIGHT: string of diff length',
+                         'bottom-right',
+                         'darkseagreen')">
+    BOTTOM RIGHT
+  </button>
+
+<script>
+  function toast(content, pos = 'bottom-center', color = 'darkcyan') {
+    const id = Date.now()
+    const [y, x] = pos.split('-')
+
+    const FONT_SIZE = content.length > 98 ? 'font-size:12.5px;' : 'font-size: inherit;'
+
+    const STYLE = `
+      background-color: ${color};
+      ${y === 'bottom' ? `${y}:-${pageYOffset | 0}px` : `${y}:${pageYOffset | 0}px`};
+      ${x === 'center' ? 'left: 50%; margin-left: -125px' : `${x}: ${pageXOffset}px; margin-${x}: 1rem`};
+  `
+    const toastElement = `
+    <div id = "${id}" class="toast" style="${STYLE}">
+      <div style=${FONT_SIZE}>${content}</div>
+      <div onclick="this.parentNode.remove()" class="remove-toast">X</div>
+    </div>
+  `
+    document.body.insertAdjacentHTML('beforeend',toastElement)
+    let toastDomNode = document.getElementById(id)
+
+    window.requestAnimationFrame(() => toastDomNode.classList.add(`slide-in-${y}`))
+    setTimeout(() => window.requestAnimationFrame(() => toastDomNode.classList.add(`slide-out`)), 1000)
+    setTimeout(() => toastDomNode.remove(), 1000)
+  }
+
+</script>
+</body>
+</html>

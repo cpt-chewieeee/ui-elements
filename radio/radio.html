@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Society</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css'>
+  <style>
+    body {
+      margin: 2rem;
+    }
+
+    label {
+      cursor: pointer;
+      margin: 1rem;
+    }
+
+    input[type="radio"] {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    i {
+      color: red;
+    }
+
+    [type="radio"]:checked + i {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+<label for='spock'>
+  <input type='radio' id='spock' name='avatar' value='spock'>
+  <i class="fa fa-hand-spock-o fa-4x"></i>
+</label>
+
+<label for='scissors'>
+  <input type='radio' id='scissors' name='avatar' value='scissors'>
+  <i class="fa fa-hand-scissors-o fa-4x"></i>
+</label>
+
+<label for='rock'>
+  <input type='radio' id='rock' name='avatar' value='rock'>
+  <i class="fa fa-hand-rock-o fa-4x"></i>
+</label>
+
+<label for='paper'>
+  <input type='radio' id='paper' name='avatar' value='paper'>
+  <i class="fa fa-hand-paper-o fa-4x"></i>
+</label>
+
+<label for='lizard'>
+  <input type='radio' id='lizard' name='avatar' value='lizard'>
+  <i class="fa fa-hand-lizard-o fa-4x"></i>
+</label>
+
+</body>
+</html>

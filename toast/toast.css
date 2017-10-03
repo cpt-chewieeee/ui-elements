@@ -1,0 +1,58 @@
+:root {
+  --ease-out-expo: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  max-width: 90vw;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.toast {
+  color: #fff;
+  position: absolute;
+  z-index: 9999;
+  max-width: 250px;
+  padding: .75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remove-toast {
+  padding-left: 15px;
+  font-family: "Arial Black", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(196, 26, 22);
+}
+
+.remove-toast > span {
+  position: absolute;
+  right: 7px;
+  top: 2px;
+}
+
+.remove-toast:hover {
+  cursor: pointer;
+}
+
+.slide-in-top {
+  transform: translateY(1rem);
+  transition: var(--ease-out-expo);
+}
+
+.slide-in-bottom {
+  transform: translateY(-1rem);
+  transition: var(--ease-out-expo);
+}
+
+.slide-out {
+  opacity: 0;
+  transition: var(--ease-out-expo);
+}
+
+

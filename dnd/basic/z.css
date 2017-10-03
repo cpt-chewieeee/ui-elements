@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+#clock {
+  font: bold 12pt sans;
+  margin: 5px;
+  padding: 10px;
+  background: #ddf;
+  border: thin solid black;
+  border-radius: 4px;
+}
+
+.textArea {
+  overflow: hidden;
+  word-wrap: break-word;
+  resize: vertical;
+}
