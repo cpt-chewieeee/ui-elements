@@ -36,10 +36,10 @@ body {
   width: 90%;
   height: 100%;
 }
+
 .dnd li {
   list-style: none;
   color: #4d4d4d;
   background-color: #E2E4E6;
   word-wrap: break-word;
-
 }

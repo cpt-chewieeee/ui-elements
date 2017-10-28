@@ -47,7 +47,7 @@ function makeDragAndDroppable(list) {
   list.ondrop = e => {
     const item = document.createElement('li')
     item.draggable = true
-    item.addEventListener('dblclick', mxakeEditable)
+    item.addEventListener('dblclick', makeEditable)
     item.addEventListener('keydown', makeUnEditable)
     item.className = 'item editable'
     item.textContent = e.dataTransfer.getData('Text')

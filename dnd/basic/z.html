@@ -23,27 +23,20 @@
   }
 </style>
 <body>
+  <div id="drag-coveredup" class="dragdemo" draggable="true">drag me</div>
+  <div id="coverup"></div>
 
-<!--<h1>Drag timestamps from the clock</h1>-->
-<!--<div class="container">-->
-     <!--<a href='' id="clock"></a>-->
-    <!--<textarea class="textArea"></textarea>-->
-<!--</div>-->
-
-<div id="drag-coveredup" class="dragdemo" draggable="true">drag me</div>
-<div id="coverup"></div>
-
-<script>
-  document.getElementById("drag-coveredup").addEventListener("dragstart", function(e) {
-    var crt = this.cloneNode(true);
-    crt.style.backgroundColor = "red";
-    crt.style.position = "absolute";
-    crt.style.top = "0px";
-    crt.style.right = "0px";
-    document.body.appendChild(crt)
-    e.dataTransfer.setData('text/plain', e.target.textContent)
-    e.dataTransfer.setDragImage(crt, 0, 0);
-  }, false);
+  <script>
+    document.getElementById("drag-coveredup").addEventListener("dragstart", function(e) {
+      const crt = this.cloneNode(true);
+      crt.style.backgroundColor = "red";
+      crt.style.position = "absolute";
+      crt.style.top = "0px";
+      crt.style.right = "0px";
+      document.body.appendChild(crt)
+      e.dataTransfer.setData('text/plain', e.target.textContent)
+      e.dataTransfer.setDragImage(crt, 0, 0);
+    }, false)
 </script>
 <!--<script src="z.js"></script>-->
 </body>

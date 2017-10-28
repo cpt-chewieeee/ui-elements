@@ -1,6 +1,3 @@
-/*:local(.darkCyan) { color: darkcyan; }*/
-
-
 html {
   font-family: 'Arial', sans-serif;
 }
@@ -13,7 +10,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 #b {

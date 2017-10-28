@@ -21,29 +21,7 @@
   </div>
 
   <script src="../../helpers.js"></script>
-  <script>
-    let titles = byClass('editable', true)
-    for (let i of titles) {
-      i.addEventListener('dblclick', makeEditable)
-      i.addEventListener('keydown', makeUnEditable)
-    }
+  <script src="index.js"></script>
 
-    function makeEditable(e) {
-      e.target.contentEditable = true
-      e.target.style.background = '#ffffff'
-      e.target.style.textAlign = 'left'
-      e.target.style.color = '#818384'
-    }
-
-    function makeUnEditable(e) {
-      if (e.keyCode === 13) {
-        e.target.contentEditable = false
-        e.target.style = ''
-      }
-    }
-
-
-  </script>
-<script src="index.js"></script>
 </body>
 </html>

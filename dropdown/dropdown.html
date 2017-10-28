@@ -30,15 +30,15 @@
 
 
 <script>
-  const dropdown = document.querySelector('.dropdown')
-  const inputBar = document.querySelector('.input-bar')
-  const label = document.querySelector('.label')
   const toggle = document.getElementById('toggle')
   const path = document.getElementById('path')
 
+  const inputBar = document.querySelector('.input-bar')
+  const dropdown = document.querySelector('.dropdown')
+  const label = document.querySelector('.label')
+
   function toggleDropDown() {
     toggle.style.display = toggle.style.display === 'none' ? 'block' : 'none'
-
     path.getAttribute('transform')
       ? path.removeAttribute('transform')
       : path.setAttribute('transform', 'rotate(180, 5, 3)')
@@ -51,6 +51,32 @@
 
   inputBar.addEventListener('click', toggleDropDown)
   dropdown.addEventListener('click', setLabel)
+
+  const max = dropdown.children.length - 1
+  let i = -1
+
+  document.body.addEventListener('keydown', e => {
+    if (toggle.style.display === 'none') return
+    if (e.which == 40 && i == -1 || e.which == 13 && i == -1) return dropdown.children[++i].style.background = 'rgba(0, 0, 0, .15)'
+    if (e.which == 38 && i == -1) return dropdown.children[i=max].style.background = 'rgba(0, 0, 0, .15)'
+
+    if (e.which == 13) {
+      toggleDropDown()
+      return label.textContent = dropdown.children[i].textContent
+    }
+
+    if (e.which == 27) {
+      if (i != -1) dropdown.children[i].style.background = ''
+      i = -1
+      return toggleDropDown()
+    }
+
+    dropdown.children[i].style.background = ''
+    if (e.which == 40 && i == max) return dropdown.children[i=0].style.background = 'rgba(0, 0, 0, .15)'
+    if (e.which == 38 && i == 0) return dropdown.children[i=max].style.background = 'rgba(0, 0, 0, .15)'
+    if (e.which == 40) return dropdown.children[++i].style.background = 'rgba(0, 0, 0, .15)'
+    if (e.which == 38) return dropdown.children[--i].style.background = 'rgba(0, 0, 0, .15)'
+  })
 
 </script>
 
