@@ -4,8 +4,31 @@ const draggable = byClass('dnd', true)
 for (const i of draggable) makeDragAndDroppable(i)
 
 for (const i of editable) {
+  i.addEventListener('dragend', removeTilts)
+  i.addEventListener('dragstart', makeItTilt)
   i.addEventListener('dblclick', makeEditable)
   i.addEventListener('keydown', makeUnEditable)
+}
+
+function removeTilts (e) {
+  var elements = document.getElementsByClassName('tilted')[0]
+  elements.parentNode.removeChild(elements)
+}
+
+function makeItTilt (e) {
+  var { textContent } = this
+  var clone = this.cloneNode()
+
+  clone.className = this.className + ' tilted'
+  var wrapper = document.createElement('div')
+
+  wrapper.innerText = textContent
+  wrapper.style.transform = 'rotate(20deg)'
+  wrapper.style.backgroundColor = '#ffffff'
+
+  clone.appendChild(wrapper)
+  document.body.appendChild(clone);
+  e.dataTransfer.setDragImage(clone, 10, 20);
 }
 
 function makeEditable(e) {
@@ -29,7 +52,6 @@ function makeDragAndDroppable(list) {
   list.ondragenter = e => {
     entered++
     if (entered) {
-    console.log(e)
       return list.className = `${className} droppable`
     }
     return false
@@ -47,6 +69,8 @@ function makeDragAndDroppable(list) {
   list.ondrop = e => {
     const item = document.createElement('li')
     item.draggable = true
+    item.addEventListener('dragstart', makeItTilt)
+    item.addEventListener('dragend', removeTilts)
     item.addEventListener('dblclick', makeEditable)
     item.addEventListener('keydown', makeUnEditable)
     item.className = 'item editable'

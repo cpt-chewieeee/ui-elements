@@ -43,3 +43,21 @@ body {
   background-color: #E2E4E6;
   word-wrap: break-word;
 }
+
+/* https://stackoverflow.com/questions/43490351/how-to-tilt-rotate-the-item-being-dragged-in-javascript-drag-and-drop */
+li.tilted {
+  list-style: none;
+  position: absolute;
+  top: 0px;
+  left: -1000px; /* wow hacks! */
+  width: 200px;
+  transform: rotate(20deg);
+}
+
+li.tilted > div {
+  color: #4d4d4d;
+  background-color: #E2E4E6;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 3px;
+}
